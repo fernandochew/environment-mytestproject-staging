@@ -1,26 +1,26 @@
 
-Showing logs for build [32mfernandochew-environment-mytest-dnvnx-1[0m stage [32mfrom-build-pack[0m and container [32mcredential-initializer[0m
-{"level":"info","ts":1603087738.7087705,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+Showing logs for build [32mfernandochew-environment-mytest-csvz2-1[0m stage [32mfrom-build-pack[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1604301918.7856107,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
 
-Showing logs for build [32mfernandochew-environment-mytest-dnvnx-1[0m stage [32mfrom-build-pack[0m and container [32mworking-dir-initializer[0m
+Showing logs for build [32mfernandochew-environment-mytest-csvz2-1[0m stage [32mfrom-build-pack[0m and container [32mworking-dir-initializer[0m
 
-Showing logs for build [32mfernandochew-environment-mytest-dnvnx-1[0m stage [32mfrom-build-pack[0m and container [32mplace-tools[0m
+Showing logs for build [32mfernandochew-environment-mytest-csvz2-1[0m stage [32mfrom-build-pack[0m and container [32mplace-tools[0m
 
-Showing logs for build [32mfernandochew-environment-mytest-dnvnx-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-fernandochew-environment-mytest-dnvnx-98lzp[0m
-{"level":"info","ts":1603087748.3037858,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/************/environment-mytestproject-staging.git @ v0.0.1 in path /workspace/source"}
-{"level":"warn","ts":1603087748.3039358,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
-{"level":"info","ts":1603087748.3573015,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+Showing logs for build [32mfernandochew-environment-mytest-csvz2-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-fernandochew-environment-mytest-csvz2-sbsg8[0m
+{"level":"info","ts":1604301926.8572605,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/************/environment-mytestproject-staging.git @ v0.0.2 in path /workspace/source"}
+{"level":"warn","ts":1604301926.857343,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1604301926.8956711,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
 
-Showing logs for build [32mfernandochew-environment-mytest-dnvnx-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-builder-home[0m
+Showing logs for build [32mfernandochew-environment-mytest-csvz2-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-builder-home[0m
 
-Showing logs for build [32mfernandochew-environment-mytest-dnvnx-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
-Using SHAs from PULL_REFS=master:820da9ef0b8594a23b7477729dc36ed21ae02449
+Showing logs for build [32mfernandochew-environment-mytest-csvz2-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:5e3645cc2e473ed0c36394f79a167f71c2e85da0
 WARNING: no SHAs to merge, falling back to initial cloned commit
 
-Showing logs for build [32mfernandochew-environment-mytest-dnvnx-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Showing logs for build [32mfernandochew-environment-mytest-csvz2-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
 Generated Git credentials file /tekton/home/git/credentials
 
-Showing logs for build [32mfernandochew-environment-mytest-dnvnx-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-helm-apply[0m
+Showing logs for build [32mfernandochew-environment-mytest-csvz2-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-helm-apply[0m
 Modified file /workspace/source/env/Chart.yaml to set the chart to version 1
 Namespace **-staging created 
 creating the lock configmap **-lock-**-staging
@@ -35,5 +35,15 @@ Successfully added Helm repository jenkins-x-chartmuseum.
 WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
 Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
 Successfully added Helm repository chartmuseum.jenkins-x.io.
-
 cleaning the lock configmap **-lock-**-staging
+error: failed to build the dependencies of chart '/tmp/**-helm-apply-184862236/env': failed to run 'helm dependency build' command in directory '/tmp/**-helm-apply-184862236/env', output: 'Hang tight while we grab the latest from your chart repositories...
+...Unable to get an update from the "local" chart repository (http://127.0.0.1:8879/charts):
+	Get http://127.0.0.1:8879/charts/index.yaml: dial tcp 127.0.0.1:8879: connect: connection refused
+...Successfully got an update from the "jenkins-x-chartmuseum" chart repository
+...Successfully got an update from the "stable" chart repository
+...Successfully got an update from the "chartmuseum.jenkins-x.io" chart repository
+...Successfully got an update from the "storage.googleapis.com" chart repository
+Update Complete. ⎈Happy Helming!⎈
+Error: **-tutorial chart not found in repo http://jenkins-x-chartmuseum:8080'
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-helm-apply'. The execution of the pipeline has stopped.[0m
